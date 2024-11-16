@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 
@@ -23,35 +22,40 @@ const NavLinks = ()=>{
 	);
 }
 
+const AuthLinks = ()=>{
+	const navigate = useNavigate();
+	return(
+		<>	
+			<div id="auth-actions">
+			<div onClick={()=>{navigate('/login')}}>Log In</div>
+			<div onClick={()=>{navigate('/signup')}} className="sign-up-btn">Sign Up</div>
+			</div>
+		</>
+	);
+}
+
 export const Header = ()=>{
 	const [menuOpen,setMenuOpen] = useState(false);
-	const navigate = useNavigate();
-	const user = useSelector(state=>state.user);
-	useEffect(()=>{
-
-		console.log(user);
-	},[user]);
 
 	return(
 		<header>
 			<div id="logo">
-				<img src="/images/logo.png" alt="" /> {user.username|| 'Anonymous'}
+				{/* <img src="/images/logo.png" alt="" /> */}
+				<span>Epitome Interiors</span>
 			</div>
 			<div className="nav">
 				<NavLinks/>
 			</div>
-			<div id="auth-actions">
-				<div onClick={()=>{navigate('/login')}}>Log In</div>
-				<div onClick={()=>{navigate('/signup')}} className="sign-up-btn">Sign Up</div>
-			</div>
+			<AuthLinks/>
 			<div id="menu-btn" onClick={()=>setMenuOpen(!menuOpen)}>
 				<div className="btn-line" style={{width:'80%'}}></div>
 				<div className="btn-line" style={{width:'60%'}}></div>
 				<div className="btn-line" style={{width:'40%'}}></div>
 			</div>
-			<div id="mob-menu" style={{right:menuOpen?'0':'-300px'}}>
+			<div id="mob-menu" style={{right:menuOpen?'0':'-100%'}}>
 				<div className="nav">
 					<NavLinks/>
+					<AuthLinks/>
 				</div>
 			</div>
 		</header>
