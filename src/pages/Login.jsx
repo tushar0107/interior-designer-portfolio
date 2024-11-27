@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { login } from "../store/UserSlice";
 
@@ -7,8 +7,12 @@ export const Login = ()=>{
 	const [username,setUserName] = useState('');
 	const [password,setPassword] = useState('');
 	const [passShow,setPassShow] = useState(false);
-	// const user = useSelector(state=>state.user);
+	const input = useRef(null);
 	const dispatch = useDispatch();
+
+	useEffect(()=>{
+		input.current.focus();
+	},[]);
 
 	return(
 		<>
@@ -16,7 +20,7 @@ export const Login = ()=>{
 			<form action="" id="login-container">
 				<h2>Login</h2>
 				<label htmlFor="username">
-					<input type="text" value={username} onChange={(e)=>setUserName(e.target.value)}></input>
+					<input type="text" value={username} onChange={(e)=>setUserName(e.target.value)} ref={input}></input>
 					<span style={username?{top:'0px',left: '.3rem',fontSize: '0.8rem'}:null}>Enter Username</span>
 				</label>
 				<label htmlFor="password">

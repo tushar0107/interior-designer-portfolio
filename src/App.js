@@ -6,20 +6,22 @@ import { Login } from './pages/Login';
 import { Header } from './Base';
 import { Provider } from 'react-redux';
 import { store } from './store/store';
+import { AppContext } from './Context';
+import { useState } from 'react';
 
 function App() {
-
- 
+  const [menuOpen,setMenuOpen] = useState(false);
   return (
     <>
     <Provider store={store}>
-
-      <Header/>
-      <Routes>
-        <Route path='/' element={<Home/>}></Route>
-      <Route path='/aboutus' element={<About/>}></Route>
-      <Route path='/login' element={<Login/>}></Route>
-      </Routes>
+      <AppContext.Provider value={{menuOpen,setMenuOpen}}>
+        <Header/>
+        <Routes>
+          <Route path='/' element={<Home/>}></Route>
+        <Route path='/aboutus' element={<About/>}></Route>
+        <Route path='/login' element={<Login/>}></Route>
+        </Routes>
+      </AppContext.Provider>
     </Provider>
     </>
   );
