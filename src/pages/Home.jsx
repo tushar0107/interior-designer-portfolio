@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Banner } from "../Base";
 
 export const Home = ()=>{
@@ -40,8 +41,8 @@ export const Home = ()=>{
 					<div className="about-content">
 						<span>A few words about us</span>
 						<h2>A study of creativity</h2>
-						<span>Interior designers assess the available space and determine the floor plan, furniture placement, and traffic flow. Space planning is considered a crucial and basic aspect of interior design.</span>
-						<button className="secondary">Contact us</button>
+						<span>We assess the available space and determine the floor plan, furniture placement, and traffic flow. Space planning is considered a crucial and basic aspect of interior design.</span>
+						<Link to={'/contact'}><button className="secondary">Contact us</button></Link>
 					</div>
 					<div id="about-images-container">
 						<div id="about-images">

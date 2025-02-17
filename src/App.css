@@ -28,10 +28,14 @@ img{
 h1,h2,h3,h4,h5,h6{
   text-align: center;
 }
+a{
+  text-decoration: none;
+  color: var(--primaryTextDark);
+}
 #menu-btn {
   display: none;
   width: 30px;
-  height: 30px;
+  height: 22px;
   justify-content: center;
   align-items: flex-end;
   flex-direction: column;
@@ -65,6 +69,9 @@ header #mob-menu .nav{
 header #mob-menu .nav a{
   display: block;
 }
+header #mob-menu .nav a:active {
+  border-bottom: 2px solid black;
+}
 header{
   position: sticky;
   z-index: 100000;
@@ -73,6 +80,7 @@ header{
   justify-content: space-between;
   align-items: center;
   padding: 0 1rem;
+  background-color: #ffffff;
 }
 header #logo img{
   width: 40px;
@@ -277,6 +285,132 @@ section{
   height: auto;
   margin: 2rem auto;
 }
+/* home page ---- end */
+
+/* about us page */
+#about-page #about-banner{
+  background-image: url('/public/images/about-us.webp');
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  height: calc(100vh - 48px);
+  position: relative;
+  align-content: center;
+}
+#about-page #about-banner h1{
+  max-width: 300px;
+  margin: 0 auto;
+  padding: 3rem;
+  background-color: #00000080;
+  color: white;
+  letter-spacing: 7px;
+}
+#about-page .about-content{
+  width: min(1000px,90%);
+  margin: 2rem auto;
+  padding: 2rem 0;
+  text-align: center;
+}
+#about-page .about-content h2{
+  letter-spacing: 2px;
+}
+.hyperlink{
+  font-size: 24px;
+  color: #ff7b00;
+}
+.bg-dark-block{
+  width: 100%;
+  margin-bottom: 0;
+  background-color: #c7c7c7;
+}
+/* about us page */
+
+/* services page */
+
+.service-box{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  padding: 1rem;
+  gap: 1rem;
+  align-items: center;
+  margin: 3rem auto;
+}
+.service-box:nth-child(even){
+  flex-direction: row-reverse;
+}
+.service-box .service-head{
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.service-box .service-context{
+  flex: 1 1 60%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.service-box .service-img{
+  display: block;
+  flex: 1 0 38%;
+  aspect-ratio: 2 / 1;
+  width: min(300px, 100%);
+  margin: 2rem auto;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+/* services page --- end */
+
+/* contact page */
+div#contact-page {
+    background-image: url('/public/images/contact-bg.png');
+    background-size: cover;
+    background-position: center;
+}
+#contact-banner{
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: min(1000px,90%);
+  margin: 0 auto;
+  height: calc(100vh - 48px - 0rem); /* viewport height - header height - padding of banner*/
+}
+form#contact-form-container{
+  width: min(500px,100%);
+  background-color: #ffffff9d;
+  backdrop-filter: blur(3px);
+  border-radius: 1rem;
+  padding: 1rem;
+}
+form#contact-form-container label{
+  position: relative;
+}
+form#contact-form-container label span {
+  position: absolute;
+  z-index: 10;
+  inset: 0 auto auto 1rem;
+  transition: .3s ease;
+  pointer-events: none;
+  color: #505050;
+}
+form#contact-form-container input,
+form#contact-form-container textarea{
+  background-color: transparent;
+  border: none;
+  outline: none;
+  margin: 1rem auto;
+  padding: .5rem;
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 18px;
+  color: var(--primaryTextDark);
+}
+form#contact-form-container button{
+  background-color: transparent;
+}
+/* contact page----- end */
 
 
 #login-modal{
@@ -327,6 +461,7 @@ section{
   outline: none;
   font-family: inherit;
   background-color: transparent;
+  resize: vertical;
 }
 
 #login-container input:focus + span{

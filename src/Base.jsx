@@ -1,5 +1,5 @@
 import { useContext, useEffect, useRef, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { AppContext } from "./Context";
 
 
@@ -13,25 +13,24 @@ export const Base = ()=>{
 }
 
 const NavLinks = ()=>{
-	const {menuOpen,setMenuOpen} = useContext(AppContext);
+	const {setMenuOpen} = useContext(AppContext);
 	return(
 		<>
-		<Link to={'/'} style={{borderBottom:window.location.pathname==='/'?'2px solid black':'none'}} onClick={()=>setMenuOpen(!menuOpen)}>Home</Link>
-		<Link to={'/aboutus'} style={{borderBottom:window.location.pathname==='/aboutus'?'2px solid black':'none'}} onClick={()=>setMenuOpen(!menuOpen)}>About</Link>
-		<Link style={{borderBottom:window.location.pathname==='/services'?'2px solid black':'none'}} onClick={()=>setMenuOpen(!menuOpen)}>Services</Link>
-		<Link style={{borderBottom:window.location.pathname==='/contact'?'2px solid black':'none'}} onClick={()=>setMenuOpen(!menuOpen)}>Contact</Link>
+		<Link to={'/'} onClick={()=>setMenuOpen(false)}>Home</Link>
+		<Link to={'/aboutus'} onClick={()=>setMenuOpen(false)}>About</Link>
+		<Link to={'/services'} onClick={()=>setMenuOpen(false)}>Services</Link>
+		<Link to={'/contact'} onClick={()=>setMenuOpen(false)}>Contact</Link>
 		</>
 	);
 }
 
 const AuthLinks = ()=>{
-	const navigate = useNavigate();
-	const {menuOpen,setMenuOpen} = useContext(AppContext);
+	const {setMenuOpen} = useContext(AppContext);
 	return(
 		<>	
 			<div id="auth-actions">
-			<div onClick={()=>{navigate('/login');setMenuOpen(!menuOpen)}}>Log In</div>
-			<div onClick={()=>{navigate('/signup');setMenuOpen(!menuOpen)}} className="sign-up-btn">Sign Up</div>
+				<Link to={'/login'} onClick={()=>{setMenuOpen(false)}}>Log In</Link>
+				<Link to={'/login'} onClick={()=>{setMenuOpen(false)}} className="sign-up-btn">Sign Up</Link>
 			</div>
 		</>
 	);

@@ -8,6 +8,8 @@ import { Provider } from 'react-redux';
 import { store } from './store/store';
 import { AppContext } from './Context';
 import { useState } from 'react';
+import { Contact } from './pages/Contact';
+import { Services } from './pages/Services';
 
 function App() {
   const [menuOpen,setMenuOpen] = useState(false);
@@ -20,6 +22,8 @@ function App() {
           <Route path='/' element={<Home/>}></Route>
         <Route path='/aboutus' element={<About/>}></Route>
         <Route path='/login' element={<Login/>}></Route>
+        <Route path='/services' element={<Services/>}></Route>
+        <Route path='/contact' element={<Contact/>}></Route>
         </Routes>
       </AppContext.Provider>
     </Provider>
